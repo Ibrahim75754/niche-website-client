@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import Login from './pages/Login/Login';
 import Registration from './pages/Registration/Registration';
+import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 
 function App() {
@@ -21,9 +22,9 @@ function App() {
             <Route exact path="/home">
               <Home></Home>
             </Route>
-            <Route path="/home/:productId">
+            <PrivateRoute path="/home/:productId">
               <PlaceOrder></PlaceOrder>
-            </Route>
+            </PrivateRoute>
             <Route path="/allProducts">
               <AllProducts></AllProducts>
             </Route>

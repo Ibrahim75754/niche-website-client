@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import icon from './../../img/logo/gmail.png';
 
 
 const Registration = () => {
