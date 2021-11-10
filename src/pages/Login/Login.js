@@ -41,7 +41,7 @@ const Login = () => {
                     <div className="d-flex justify-content-center">
                         <div className="mb-3">
                             <div className="form-group">
-                                <input className="form-control" onBlur={handleOnBlur} type="email" name="name" placeholder="Email" required />
+                                <input className="form-control" onBlur={handleOnBlur} type="email" name="email" placeholder="Email" required />
                             </div><br />
                             <div className="form-group">
                                 <input className="form-control" onBlur={handleOnBlur} type="password" name="password" placeholder="Password" required />

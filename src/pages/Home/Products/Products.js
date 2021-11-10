@@ -47,7 +47,7 @@ const Products = () => {
 
                             <div class="card-body">
                                 <h5 class="card-title">{product.name}</h5>
-                                <p class="card-text">{product.description}</p>
+                                <p class="card-text">{product.description.split(' ').slice(0, 20).toString().replace(/,/g, ' ')}...</p>
                                 <div className="d-flex justify-content-between">
                                     <h4>{product.price} BDT</h4>
                                     <Link to={`/home/${product.id}`}><button className='btn btn-warning'>Purchase</button></Link>

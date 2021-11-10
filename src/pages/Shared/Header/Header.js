@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
     console.log(user)
 
     const activeStyle = {
@@ -33,10 +33,16 @@ const Header = () => {
                                 <NavLink class="nav-link " activeStyle={activeStyle} aria-current="page" to="/dashboard">Dashboard</NavLink>
                             </li>
                         </ul>
-                        <span class="navbar-text">
-                            <span>hello</span>
-                            <NavLink class="" aria-current="page" to="/login"><button className="btn btn-success">Login</button></NavLink>
-                        </span>
+                        {user?.email ?
+                            <span class="navbar-text">
+                                <span>{user?.displayName}</span>
+                                <button onClick={logout} className="btn btn-success ms-2">LogOut</button>
+                            </span>
+                            :
+                            <span class="navbar-text">
+                                <NavLink class="" aria-current="page" to='/login'><button className="btn btn-success">Login</button></NavLink>
+                            </span>
+                        }
                     </div>
                 </div>
             </nav>
