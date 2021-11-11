@@ -1,4 +1,12 @@
 import * as React from 'react';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams,
+    useRouteMatch
+} from "react-router-dom";
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -10,13 +18,20 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import DashboradHome from './DashbosrdHome/DashboradHome';
+import Pay from './UserDashboard/Pay/Pay';
+import MyOrders from './UserDashboard/MyOrders/MyOrders';
+import UserReview from './UserDashboard/UserReview/UserReview';
+import useAuth from '../../hooks/useAuth';
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
+    const { logout } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+
+    let { path, url } = useRouteMatch();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -30,9 +45,12 @@ function Dashboard(props) {
             <Divider />
 
             <Link to="/home"><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Home</Button></Link>
-            <Link to="/home"><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Pay</Button></Link>
-            <Link to="/home"><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">My Orders</Button></Link>
-            <Link to="/home"><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Review</Button></Link>
+            <Link to={`${url}`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Dashboard</Button></Link>
+            <Link to={`${url}/pay`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Pay</Button></Link>
+            <Link to={`${url}/myOrders`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">My Orders</Button></Link>
+            <Link to={`${url}/userReview`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Review</Button></Link>
+            <Link to="/home"><button onClick={logout} className="btn btn-success w-100">LogOut</button></Link>
+
 
             {/* <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
             {admin && <Box>
@@ -106,10 +124,20 @@ function Dashboard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                <Typography paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-
-                </Typography>
+                <Switch>
+                    <Route exact path={path}>
+                        <DashboradHome></DashboradHome>
+                    </Route>
+                    <Route path={`${path}/pay`}>
+                        <Pay></Pay>
+                    </Route>
+                    <Route path={`${path}/myOrders`}>
+                        <MyOrders></MyOrders>
+                    </Route>
+                    <Route path={`${path}/userReview`}>
+                        <UserReview></UserReview>
+                    </Route>
+                </Switch>
 
             </Box>
         </Box>

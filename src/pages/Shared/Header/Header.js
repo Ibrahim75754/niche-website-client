@@ -4,7 +4,6 @@ import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
     const { user, logout } = useAuth();
-    console.log(user)
 
     const activeStyle = {
         color: "#FDF3F4",

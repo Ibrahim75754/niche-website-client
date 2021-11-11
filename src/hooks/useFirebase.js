@@ -26,7 +26,7 @@ const useFirebase = () => {
                 setUser(newUser);
 
                 //store user information into database
-                /* saveUser(name, email, 'POST'); */
+                saveUser(name, email, 'POST');
 
                 updateProfile(auth.currentUser, {
                     displayName: name
@@ -64,7 +64,7 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 //save user data to database
-                /* saveUser(user.displayName, user.email, 'PUT'); */
+                saveUser(user.displayName, user.email, 'PUT');
 
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
@@ -110,7 +110,7 @@ const useFirebase = () => {
             .finally(() => setLoading(false));
     }
 
-    /* const saveUser = (displayName, email, method) => {
+    const saveUser = (displayName, email, method) => {
         const user = { displayName, email };
         fetch('http://localhost:5000/users', {
             method: method,
@@ -121,7 +121,7 @@ const useFirebase = () => {
         })
             .then()
     }
- */
+
 
     return {
         user,
