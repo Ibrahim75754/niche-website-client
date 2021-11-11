@@ -28,9 +28,9 @@ const Header = () => {
                             <li class="nav-item">
                                 <NavLink class="nav-link " activeStyle={activeStyle} aria-current="page" to="/allProducts">More Products</NavLink>
                             </li>
-                            <li class="nav-item">
+                            {user?.email && <li class="nav-item">
                                 <NavLink class="nav-link " activeStyle={activeStyle} aria-current="page" to="/dashboard">Dashboard</NavLink>
-                            </li>
+                            </li>}
                         </ul>
                         {user?.email ?
                             <span class="navbar-text">
