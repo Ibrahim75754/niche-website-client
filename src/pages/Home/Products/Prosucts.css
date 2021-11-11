@@ -1,3 +1,13 @@
 .img-height{
     max-height: 300px;
 }
+.btn-purchase{
+    background-color:tomato;
+    color: azure;
+}
+.btn-purchase:hover{
+    color: rgb(210, 226, 210);
+}
+.text-color{
+    color: #006885;
+}
