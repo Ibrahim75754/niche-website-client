@@ -1,10 +1,8 @@
 import * as React from 'react';
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     Link,
-    useParams,
     useRouteMatch
 } from "react-router-dom";
 import PropTypes from 'prop-types';
@@ -23,11 +21,12 @@ import Pay from './UserDashboard/Pay/Pay';
 import MyOrders from './UserDashboard/MyOrders/MyOrders';
 import UserReview from './UserDashboard/UserReview/UserReview';
 import useAuth from '../../hooks/useAuth';
+import MakeAdmin from './AdminDashboard/MakeAdmin/MakeAdmin';
 
-const drawerWidth = 200;
+const drawerWidth = 220;
 
 function Dashboard(props) {
-    const { logout } = useAuth();
+    const { admin, logout } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -43,20 +42,23 @@ function Dashboard(props) {
                 <h1 className="text-bold d-inline" style={{ color: "tomato" }}>MYShop</h1>
             </Toolbar>
             <Divider />
-
-            <Link to="/home"><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Home</Button></Link>
-            <Link to={`${url}`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Dashboard</Button></Link>
-            <Link to={`${url}/pay`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Pay</Button></Link>
-            <Link to={`${url}/myOrders`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">My Orders</Button></Link>
-            <Link to={`${url}/userReview`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Review</Button></Link>
+            {
+                admin ?
+                    <Box>
+                        <Link to={`${url}/manageAllOrders`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Manage All Orders</Button></Link>
+                        <Link to={`${url}/addProduct`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Add Product</Button></Link>
+                        <Link to={`${url}/manageAllProducts`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Manage All Products</Button></Link>
+                        <Link to={`${url}/makeAdmin`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Make Admin</Button></Link>
+                    </Box>
+                    :
+                    <Box><Link to="/home"><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Home</Button></Link>
+                        <Link to={`${url}`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Dashboard</Button></Link>
+                        <Link to={`${url}/pay`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Pay</Button></Link>
+                        <Link to={`${url}/myOrders`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">My Orders</Button></Link>
+                        <Link to={`${url}/userReview`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Review</Button></Link>
+                    </Box>
+            }
             <Link to="/home"><button onClick={logout} className="btn btn-success w-100">LogOut</button></Link>
-
-
-            {/* <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
-            {admin && <Box>
-                <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
-                <Link to={`${url}/addDoctor`}><Button color="inherit">Add Doctor</Button></Link>
-            </Box>} */}
         </div>
     );
 
@@ -136,6 +138,9 @@ function Dashboard(props) {
                     </Route>
                     <Route path={`${path}/userReview`}>
                         <UserReview></UserReview>
+                    </Route>
+                    <Route path={`${path}/makeAdmin`}>
+                        <MakeAdmin></MakeAdmin>
                     </Route>
                 </Switch>
 

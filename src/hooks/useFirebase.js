@@ -93,12 +93,12 @@ const useFirebase = () => {
         return () => unsubscribe;
     }, [])
 
-    //check admin
-    /* useEffect(() => {
+    // check admin
+    useEffect(() => {
         fetch(`http://localhost:5000/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
-    }, [user.email]) */
+    }, [user.email])
 
     const logout = () => {
         setLoading(true);
