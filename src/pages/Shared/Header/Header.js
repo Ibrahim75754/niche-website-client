@@ -9,7 +9,7 @@ const Header = () => {
         color: "#FDF3F4",
     }
     return (
-        <div style={{ marginBottom: '80px' }}>
+        <div className="text-start" style={{ marginBottom: '80px' }}>
             <nav class="navbar navbar-expand-lg navbar-light fixed-top" style={{ backgroundColor: "#006885" }}>
                 <div class="container">
                     <NavLink class="navbar-brand" to="/">
@@ -34,6 +34,7 @@ const Header = () => {
                         {user?.email ?
                             <span class="navbar-text">
                                 <span style={{ color: "#FDF3F4" }}>{user?.displayName}</span>
+                                <img class="rounded-circle ms-2" style={{ width: "40px" }} src={user.photoURL} alt="" />
                                 <button onClick={logout} className="btn btn-success ms-2">LogOut</button>
                             </span>
                             :
