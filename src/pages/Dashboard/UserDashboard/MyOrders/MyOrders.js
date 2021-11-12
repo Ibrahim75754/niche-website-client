@@ -3,7 +3,6 @@ import useAuth from '../../../../hooks/useAuth';
 
 const MyOrders = () => {
     const { user } = useAuth();
-    console.log(user.email);
     const [products, setProducts] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:5000/orders/${user.email}`)
