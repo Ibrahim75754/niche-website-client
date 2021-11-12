@@ -10,7 +10,7 @@ const PlaceOrder = () => {
     const { productId } = useParams();
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${productId}`)
+        fetch(`https://agile-everglades-07523.herokuapp.com/products/${productId}`)
             .then(res => res.json())
             .then(data =>
                 setProduct(data));
@@ -22,7 +22,7 @@ const PlaceOrder = () => {
         console.log(data);
 
         // use AXIOS for post into data base
-        axios.post('http://localhost:5000/placeOrder', data)
+        axios.post('https://agile-everglades-07523.herokuapp.com/placeOrder', data)
             .then(res => {
                 console.log(res);
                 if (res.data.insertedId) {

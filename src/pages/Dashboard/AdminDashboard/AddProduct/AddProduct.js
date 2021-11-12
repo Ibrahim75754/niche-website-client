@@ -7,7 +7,7 @@ const AddProduct = () => {
     const onSubmit = data => {
         console.log(data);
         // use AXIOS for post into data base
-        axios.post('http://localhost:5000/products', data)
+        axios.post('https://agile-everglades-07523.herokuapp.com/products', data)
             .then(res => {
                 console.log(res);
                 if (res.data.insertedId) {

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ManageAllOrders = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://agile-everglades-07523.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, []);
@@ -13,7 +13,7 @@ const ManageAllOrders = () => {
     const handleDelete = id => {
         const areUsure = window.confirm('Are You Sure, Want To Delete?');
         if (areUsure) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://agile-everglades-07523.herokuapp.com/orders/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
