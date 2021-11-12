@@ -52,7 +52,7 @@ const ManageAllOrders = () => {
                                 <td>{product.productId}</td>
                                 <td>{product.phone}</td>
                                 <td>{product.address}</td>
-                                <td><Link to={`packages/update/${product._id}`}><button className="btn btn-success mb-2">Update</button></Link><br /><button onClick={() => handleDelete(product._id)} className="btn btn-danger">Delete</button></td>
+                                <td><button onClick={() => handleDelete(product._id)} className="btn btn-danger">Delete</button></td>
                             </tr>)
                         }
                     </tbody>
