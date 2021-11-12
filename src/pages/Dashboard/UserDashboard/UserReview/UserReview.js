@@ -1,12 +1,23 @@
+import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import useAuth from '../../../../hooks/useAuth';
 
 const UserReview = () => {
     const { user } = useAuth();
-    console.log(user)
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+
+    const { register, handleSubmit, reset } = useForm();
+    const onSubmit = data => {
+        // use AXIOS for post into data base
+        axios.post('http://localhost:5000/reviews', data)
+            .then(res => {
+                console.log(res);
+                if (res.data.insertedId) {
+                    alert('data insert successfully');
+                    reset();
+                }
+            })
+    }
 
     return (
         <div>
