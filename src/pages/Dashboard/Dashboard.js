@@ -22,6 +22,11 @@ import MyOrders from './UserDashboard/MyOrders/MyOrders';
 import UserReview from './UserDashboard/UserReview/UserReview';
 import useAuth from '../../hooks/useAuth';
 import MakeAdmin from './AdminDashboard/MakeAdmin/MakeAdmin';
+import ManageAllOrders from './AdminDashboard/ManageAllOrders/ManageAllOrders';
+import AddProduct from './AdminDashboard/AddProduct/AddProduct';
+import ManageAllProducts from './AdminDashboard/ManageAllProducts/ManageAllProducts';
+import AdminRoute from '../Login/AdminRoute/AdminRoute';
+import ProductsUpdate from './AdminDashboard/ManageAllProducts/ProductsUpdate';
 
 const drawerWidth = 220;
 
@@ -42,6 +47,7 @@ function Dashboard(props) {
                 <h1 className="text-bold d-inline" style={{ color: "tomato" }}>MYShop</h1>
             </Toolbar>
             <Divider />
+            <Link to="/home"><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Home</Button></Link>
             {
                 admin ?
                     <Box>
@@ -51,7 +57,7 @@ function Dashboard(props) {
                         <Link to={`${url}/makeAdmin`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Make Admin</Button></Link>
                     </Box>
                     :
-                    <Box><Link to="/home"><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Home</Button></Link>
+                    <Box>
                         <Link to={`${url}`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Dashboard</Button></Link>
                         <Link to={`${url}/pay`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Pay</Button></Link>
                         <Link to={`${url}/myOrders`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">My Orders</Button></Link>
@@ -139,9 +145,21 @@ function Dashboard(props) {
                     <Route path={`${path}/userReview`}>
                         <UserReview></UserReview>
                     </Route>
-                    <Route path={`${path}/makeAdmin`}>
+                    <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
-                    </Route>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageAllOrders`}>
+                        <ManageAllOrders></ManageAllOrders>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/addProduct`}>
+                        <AddProduct></AddProduct>
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/manageAllProducts`}>
+                        <ManageAllProducts></ManageAllProducts>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageAllProducts/:id`}>
+                        <ProductsUpdate></ProductsUpdate>
+                    </AdminRoute>
                 </Switch>
 
             </Box>
