@@ -58,8 +58,8 @@ const Login = () => {
                 </div>}
 
                 <p>New User? <Link to="/registration">Registration</Link></p>
-                <div>-----------Login With-----------</div>
-                <button onClick={handleGoogleSignIn} className="btn bg-color mt-3 border"><img src={icon} alt="" height="30" /></button>
+                <div>----------Login With----------</div>
+                <button onClick={handleGoogleSignIn} className="btn bg-color mt-3 border"><img src={icon} alt="" height="30" />Google Login</button>
 
 
             </div>
