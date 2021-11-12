@@ -39,9 +39,9 @@ const PlaceOrder = () => {
                 <div className="row">
                     <div className="col-md-6 border-end">
                         <img src={product.img} className="img-fluid img-height mb-5" alt="" />
-                        <h5 class="card-title text-color">{product.name}</h5>
+                        <h5 className="card-title text-color">{product.name}</h5>
                         <h5 className="text-color"> Price: {product.price} BDT</h5>
-                        <p class="card-text">{product.description}</p>
+                        <p className="card-text">{product.description}</p>
                     </div>
                     <div className="col-md-6">
                         <h1 className="text-center mb-5 text-color">Fill up the Form to Place Oder</h1>

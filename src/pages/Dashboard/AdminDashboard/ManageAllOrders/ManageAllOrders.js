@@ -31,7 +31,7 @@ const ManageAllOrders = () => {
         <div>
             <h1>Manage All Orders</h1>
             <div className="table-responsive">
-                <table class="table table-hover text-center">
+                <table className="table table-hover text-center">
                     <thead>
                         <tr>
                             <th scope="col">serial</th>

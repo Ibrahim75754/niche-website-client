@@ -10,36 +10,36 @@ const Header = () => {
     }
     return (
         <div className="text-start" style={{ marginBottom: '80px' }}>
-            <nav class="navbar navbar-expand-lg navbar-light fixed-top" style={{ backgroundColor: "#006885" }}>
-                <div class="container">
-                    <NavLink class="navbar-brand" to="/">
-                        {/* <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" /> */}
+            <nav className="navbar navbar-expand-lg navbar-light fixed-top" style={{ backgroundColor: "#006885" }}>
+                <div className="container">
+                    <NavLink className="navbar-brand" to="/">
+                        {/* <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" className="d-inline-block align-text-top" /> */}
                         <h1 className="text-bold d-inline" style={{ color: "tomato" }}>MYShop</h1>
                     </NavLink>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarText">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style={{ fontWeight: "bold" }}>
-                            <li class="nav-item">
-                                <NavLink class="nav-link" activeStyle={activeStyle} aria-current="page" to="/home">Home</NavLink>
+                    <div className="collapse navbar-collapse" id="navbarText">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0" style={{ fontWeight: "bold" }}>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" activeStyle={activeStyle} aria-current="page" to="/home">Home</NavLink>
                             </li>
-                            <li class="nav-item">
-                                <NavLink class="nav-link " activeStyle={activeStyle} aria-current="page" to="/allProducts">More Products</NavLink>
+                            <li className="nav-item">
+                                <NavLink className="nav-link " activeStyle={activeStyle} aria-current="page" to="/allProducts">More Products</NavLink>
                             </li>
-                            {user?.email && <li class="nav-item">
-                                <NavLink class="nav-link " activeStyle={activeStyle} aria-current="page" to="/dashboard">Dashboard</NavLink>
+                            {user?.email && <li className="nav-item">
+                                <NavLink className="nav-link " activeStyle={activeStyle} aria-current="page" to="/dashboard">Dashboard</NavLink>
                             </li>}
                         </ul>
                         {user?.email ?
-                            <span class="navbar-text">
+                            <span className="navbar-text">
                                 <span style={{ color: "#FDF3F4" }}>{user?.displayName}</span>
-                                <img class="rounded-circle ms-2" style={{ width: "40px" }} src={user.photoURL} alt="" />
+                                <img className="rounded-circle ms-2" style={{ width: "40px" }} src={user.photoURL} alt="" />
                                 <button onClick={logout} className="btn btn-success ms-2">LogOut</button>
                             </span>
                             :
-                            <span class="navbar-text">
-                                <NavLink class="" aria-current="page" to='/login'><button className="btn btn-success">Login</button></NavLink>
+                            <span className="navbar-text">
+                                <NavLink className="" aria-current="page" to='/login'><button className="btn btn-success">Login</button></NavLink>
                             </span>
                         }
                     </div>

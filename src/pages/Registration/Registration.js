@@ -48,7 +48,7 @@ const Registration = () => {
                         </div>
                     </div>
                 </form>
-                {authError && <div class="alert alert-danger" role="alert">
+                {authError && <div className="alert alert-danger" role="alert">
                     {authError}
                 </div>}
 

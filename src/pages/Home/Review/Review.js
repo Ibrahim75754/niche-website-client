@@ -11,18 +11,18 @@ const Review = () => {
     return (
         <div className="container my-5">
             <h1 className="mb-4 text-color">Testimonials</h1>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div className="row row-cols-1 row-cols-md-3 g-4">
                 {
                     reviews.map(review => <div>
-                        <div class="card mb-3 py-3 " >
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src={review.img} class="img-fluid rounded-circle mt-3 ms-3" alt="..." />
+                        <div className="card mb-3 py-3 " >
+                            <div className="row">
+                                <div className="col-md-4">
+                                    <img src={review.img} className="img-fluid rounded-circle mt-3 ms-3" style={{ width: "200px" }} alt="..." />
                                 </div>
-                                <div class="col-md-8 text-start">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{review.name}</h5>
-                                        <p class="card-text">{review.description}</p>
+                                <div className="col-md-8 text-md-start">
+                                    <div className="card-body">
+                                        <h5 className="card-title">{review.name}</h5>
+                                        <p className="card-text">{review.description}</p>
                                         <Rating name="read-only" value={review.rating} readOnly />
                                     </div>
                                 </div>

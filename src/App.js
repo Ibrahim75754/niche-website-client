@@ -9,6 +9,7 @@ import Login from './pages/Login/Login';
 import Registration from './pages/Registration/Registration';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
             </Route>
             <Route path="/registration">
               <Registration></Registration>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
         </Router>
