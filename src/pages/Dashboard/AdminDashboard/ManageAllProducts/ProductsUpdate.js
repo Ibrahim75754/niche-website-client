@@ -1,5 +1,3 @@
-import { Button, TextField } from '@mui/material';
-import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
@@ -12,94 +10,61 @@ const ProductsUpdate = () => {
             .then(data =>
                 setProduct(data));
     }, []);
-    console.log(product)
-    const handleOnBlur = e => {
-        const field = e.target.name;
-        const value = e.target.value;
-        const newProductInfo = { ...product };
-        newProductInfo[field] = value;
-        console.log(newProductInfo);
-        setProduct(newProductInfo);
+
+    //Update part
+    const chaneImg = e => {
+        const updateImg = e.target.value;
+        const update = { img: updateImg, name: product.name, description: product.description, price: product.price, duration: product.duration };
+        setProduct(update);
+    }
+    const chaneName = e => {
+        const updateName = e.target.value;
+        const update = { img: product.img, name: updateName, description: product.description, price: product.price, duration: product.duration };
+        setProduct(update);
 
     }
-
-
-    const handleBookingSubmit = e => {
-        // collection data
-        /* const appointment = { ...product, time, serviceName: name, date: date.toLocaleDateString() };
-        //send to server 
-        fetch('http://localhost:5000/appointments', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(appointment)
+    const chaneDes = e => {
+        const updatedes = e.target.value;
+        const update = { img: product.img, name: product.name, description: updatedes, price: product.price, duration: product.duration };
+        setProduct(update);
+    }
+    const chanePrice = e => {
+        const updatePrice = e.target.value;
+        const update = { img: product.img, name: product.name, description: product.description, price: updatePrice, duration: product.duration };
+        setProduct(update);
+    }
+    const handleUpdate = e => {
+        fetch(`http://localhost:5000/products/update/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(product)
         })
             .then(res => res.json())
             .then(data => {
-                if (data.insertedId) {
-                    setBookingSuccess(true);
-                    handleBookingClose();
+                if (data.modifiedCount > 0) {
+                    alert('update successful')
                 }
             })
- */
         e.preventDefault();
+
     }
     return (
         <div>
             <h1>Product Update {id}</h1>
-            <Box>
-                <form onSubmit={handleBookingSubmit}>
-                    <TextField
-                        disabled
-                        label="Product Id"
-                        sx={{ width: '90%', m: 1 }}
-                        id="outlined-size-small"
-                        defaultValue={id}
-                        size="small"
-                    />
-                    <TextField
-                        label="Image Url"
-                        sx={{ width: '90%', m: 1 }}
-                        id="outlined-size-small"
-                        name="img"
-                        onBlur={handleOnBlur}
-                        defaultValue={product.img}
-                        size="small"
-                    />
-                    <TextField
-                        label="Product Name"
-                        sx={{ width: '90%', m: 1 }}
-                        id="outlined-size-small"
-                        name="name"
-                        onBlur={handleOnBlur}
-                        defaultValue={product.name}
-                        size="small"
-                    />
-                    <TextField
-                        label="Product Name"
-                        sx={{ width: '90%', m: 1 }}
-                        id="outlined-size-small"
-                        name="description"
-                        onBlur={handleOnBlur}
-                        defaultValue={product.description}
-                        size="small"
-                    />
-                    <TextField
-                        sx={{ width: '90%', m: 1 }}
-                        id="outlined-size-small"
-                        name="price"
-                        onBlur={handleOnBlur}
-                        defaultValue={product.price}
-                        size="small"
-                    />
-                    <Button type="submit" variant="contained">Submit</Button>
+            <div>
+                <form onSubmit={handleUpdate} className="d-flex flex-column justify-content-center align-items-center">
+                    <input className="w-50 mb-3" type="text" onChange={chaneImg} value={product?.img || ''} />
+                    <input className="w-50 mb-3" type="name" onChange={chaneName} value={product?.name || ''} />
+                    <textarea className="w-50 mb-3" onChange={chaneDes} type="text" value={product?.description || ''} />
+                    <input className="w-50 mb-3" onChange={chanePrice} type="number" value={product?.price || ''} />
+
+                    <input className="w-50 mb-3" type="submit" />
                 </form>
-            </Box>
-            <TextField
-                label="Product Name"
-                id="outlined-size-small"
-                defaultValue="Small"
-                size="small"
-            />
+            </div>
+
+
         </div>
     );
 };
