@@ -19,7 +19,7 @@ const PlaceOrder = () => {
 
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        console.log(data);
+        data.status = "pending";
 
         // use AXIOS for post into data base
         axios.post('https://agile-everglades-07523.herokuapp.com/placeOrder', data)
