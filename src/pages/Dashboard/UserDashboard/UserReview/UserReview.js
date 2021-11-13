@@ -11,7 +11,7 @@ const UserReview = () => {
         // use AXIOS for post into data base
         axios.post('https://agile-everglades-07523.herokuapp.com/reviews', data)
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 if (res.data.insertedId) {
                     alert('data insert successfully');
                     reset();

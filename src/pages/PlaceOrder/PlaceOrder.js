@@ -24,7 +24,7 @@ const PlaceOrder = () => {
         // use AXIOS for post into data base
         axios.post('https://agile-everglades-07523.herokuapp.com/placeOrder', data)
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 if (res.data.insertedId) {
                     alert('Order successfully complete');
                     reset();
