@@ -14,12 +14,16 @@ const PlaceOrder = () => {
             .then(res => res.json())
             .then(data =>
                 setProduct(data));
-    }, []);
+    }, [productId]);
 
 
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        data.status = "pending";
+        data.productId = productId;
+        data.productName = product.name;
+        data.price = product.price;
+
+        console.log(data);
 
         // use AXIOS for post into data base
         axios.post('https://agile-everglades-07523.herokuapp.com/placeOrder', data)
@@ -47,12 +51,10 @@ const PlaceOrder = () => {
                         <h1 className="text-center mb-5 text-color">Fill up the Form to Place Oder</h1>
                         <div>
                             <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column justify-content-center align-items-center">
-                                <input className="w-50 mb-3"  {...register("name")} type="text" value={user.displayName} required />
-                                <input className="w-50 mb-3" {...register("email")} type="email" value={user.email} required />
-                                <input className="w-50 mb-3"  {...register("productId")} type="text" value={productId} />
-                                <input className="w-50 mb-3"  {...register("productName")} type="text" value={product.name} />
-                                <textarea className="w-50 mb-3"  {...register("address")} type="text" placeholder="Address" required />
-                                <input className="w-50 mb-3"  {...register("phone")} type="number" placeholder="Phone Number" required />
+                                <input className="w-50 mb-3 p-2"  {...register("name")} type="text" value={user.displayName} required />
+                                <input className="w-50 mb-3 p-2" {...register("email")} type="email" value={user.email} required />
+                                <textarea className="w-50 mb-3 p-2"  {...register("address")} type="text" placeholder="Address" required />
+                                <input className="w-50 mb-3 p-2"  {...register("phone")} type="number" placeholder="Phone Number" required />
                                 <input className="btn btn-purchase w-50 mb-3" type="submit" value="Place Order" />
                             </form>
                         </div>

@@ -17,7 +17,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import DashboradHome from './DashbosrdHome/DashboradHome';
-import Pay from './UserDashboard/Pay/Pay';
+import Payment from './UserDashboard/Payment/Payment';
 import MyOrders from './UserDashboard/MyOrders/MyOrders';
 import UserReview from './UserDashboard/UserReview/UserReview';
 import useAuth from '../../hooks/useAuth';
@@ -136,8 +136,8 @@ function Dashboard(props) {
                     <Route exact path={path}>
                         <DashboradHome></DashboradHome>
                     </Route>
-                    <Route path={`${path}/pay`}>
-                        <Pay></Pay>
+                    <Route path={`${path}/payment/:ordersId`}>
+                        <Payment></Payment>
                     </Route>
                     <Route path={`${path}/myOrders`}>
                         <MyOrders></MyOrders>
