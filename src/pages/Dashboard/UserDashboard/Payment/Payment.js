@@ -19,11 +19,11 @@ const Payment = () => {
     return (
         <div>
             <h1>Payment for id {ordersId}</h1>
-            <Elements stripe={stripePromise}>
+            {order?.price && <Elements stripe={stripePromise}>
                 <CheckoutForm
                     order={order}
                 />
-            </Elements>
+            </Elements>}
         </div>
     );
 };
