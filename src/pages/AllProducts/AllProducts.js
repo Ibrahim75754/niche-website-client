@@ -22,7 +22,7 @@ const AllProducts = () => {
                         products.map(product => <div className="col text-start">
                             <div className="card h-100 border-0 card-custom">
                                 <div className="card-img">
-                                    <img src={product.img} className="card-img-top img-height p-3" alt="..." />
+                                    <img src={`data:image/png;base64,${product.img}`} className="card-img-top img-height p-3" alt="..." />
                                 </div>
                                 <div className="card-body">
                                     <h5 className="card-title">{product.name}</h5>
