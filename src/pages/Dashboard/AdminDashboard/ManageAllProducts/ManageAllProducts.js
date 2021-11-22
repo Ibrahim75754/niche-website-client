@@ -48,7 +48,7 @@ const ManageAllProducts = () => {
                                 <th scope="row">{id++}</th>
                                 <td><img style={{ width: "100px", height: "100px" }} src={`data:image/png;base64,${product.img}`} alt="" /></td>
                                 <td>{product.name}</td>
-                                <td>{product.description.slice(0, 100)}...</td>
+                                <td>{product.description}</td>
                                 <td>{product.price} BDT</td>
                                 <td><Link to={`manageAllProducts/${product._id}`}><button className="btn btn-success mb-2">Update</button></Link><br /><button onClick={() => handleDelete(product._id)} className="btn btn-danger">Delete</button></td>
                             </tr>)

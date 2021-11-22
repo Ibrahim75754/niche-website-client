@@ -7,7 +7,7 @@ const MyOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${user.email}`)
+        fetch(`https://agile-everglades-07523.herokuapp.com/myOrders/${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data));
     }, [user.email]);
@@ -32,7 +32,7 @@ const MyOrders = () => {
     }
     return (
         <div>
-            <h1>Your Orders{orders.length}</h1>
+            <h1>Your Orders</h1>
             <div className="table-responsive">
                 <table className="table table-hover text-center">
                     <thead>

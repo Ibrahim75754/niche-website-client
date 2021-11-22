@@ -42,7 +42,7 @@ const PlaceOrder = () => {
             <div className="container text-start py-5">
                 <div className="row">
                     <div className="col-md-6 border-end">
-                        <img src={product.img} className="img-fluid img-height mb-5" alt="" />
+                        <img src={`data:image/png;base64,${product.img}`} className="img-fluid img-height mb-5" alt="" />
                         <h5 className="card-title text-color">{product.name}</h5>
                         <h5 className="text-color"> Price: {product.price} BDT</h5>
                         <p className="card-text">{product.description}</p>
