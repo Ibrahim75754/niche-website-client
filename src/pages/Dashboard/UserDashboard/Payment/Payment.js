@@ -11,7 +11,7 @@ const Payment = () => {
     const { ordersId } = useParams();
     const [order, setOrder] = useState();
     useEffect(() => {
-        fetch(`https://agile-everglades-07523.herokuapp.com/orders/${ordersId}`)
+        fetch(`http://localhost:5000/orders/${ordersId}`)
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [ordersId])

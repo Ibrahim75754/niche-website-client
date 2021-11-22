@@ -14,7 +14,7 @@ const CheckoutForm = ({ order }) => {
     const [processing, setProcessing] = useState(false);
 
     useEffect(() => {
-        fetch('https://agile-everglades-07523.herokuapp.com/create-payment-intent', {
+        fetch('http://localhost:5000/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -84,7 +84,7 @@ const CheckoutForm = ({ order }) => {
                 last4: paymentMethod.card.last4,
                 transaction: paymentIntent.client_secret.slice('_secret')[0],
             }
-            fetch(`https://agile-everglades-07523.herokuapp.com/orders/${_id}`, {
+            fetch(`http://localhost:5000/orders/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

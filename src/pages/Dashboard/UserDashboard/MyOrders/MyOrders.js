@@ -9,7 +9,7 @@ const MyOrders = () => {
         fetch(`https://agile-everglades-07523.herokuapp.com/orders/${user.email}`)
             .then(res => res.json())
             .then(data => setProducts(data));
-    }, [user]);
+    }, [user.email]);
     let Id = 1;
     const handleDelete = id => {
         const areUsure = window.confirm('Are You Sure, Want To Delete?');
@@ -30,7 +30,7 @@ const MyOrders = () => {
     }
     return (
         <div>
-            <h1>Your Orders</h1>
+            <h1>Your Orders{products.length}</h1>
             <div className="table-responsive">
                 <table className="table table-hover text-center">
                     <thead>
