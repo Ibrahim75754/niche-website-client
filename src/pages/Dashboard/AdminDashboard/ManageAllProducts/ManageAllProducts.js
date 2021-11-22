@@ -46,7 +46,7 @@ const ManageAllProducts = () => {
                         {
                             products.map(product => <tr>
                                 <th scope="row">{id++}</th>
-                                <td><img style={{ width: "100px", height: "100px" }} src={product.img} alt="" /></td>
+                                <td><img style={{ width: "100px", height: "100px" }} src={`data:image/png;base64,${product.img}`} alt="" /></td>
                                 <td>{product.name}</td>
                                 <td>{product.description.slice(0, 100)}...</td>
                                 <td>{product.price} BDT</td>

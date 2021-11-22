@@ -13,7 +13,6 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.24.0",
-    "express-fileupload": "^1.2.1",
     "firebase": "^9.4.0",
     "material-ui-responsive-drawer": "^1.19.4",
     "react": "^17.0.2",

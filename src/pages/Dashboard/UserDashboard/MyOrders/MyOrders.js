@@ -4,12 +4,14 @@ import useAuth from '../../../../hooks/useAuth';
 
 const MyOrders = () => {
     const { user } = useAuth();
-    const [products, setProducts] = useState([]);
+    const [orders, setOrders] = useState([]);
+
     useEffect(() => {
-        fetch(`https://agile-everglades-07523.herokuapp.com/orders/${user.email}`)
+        fetch(`http://localhost:5000/orders/${user.email}`)
             .then(res => res.json())
-            .then(data => setProducts(data));
+            .then(data => setOrders(data));
     }, [user.email]);
+
     let Id = 1;
     const handleDelete = id => {
         const areUsure = window.confirm('Are You Sure, Want To Delete?');
@@ -22,15 +24,15 @@ const MyOrders = () => {
                     // console.log(data);
                     if (data.deletedCount) {
                         alert('Delete Successful');
-                        const remaining = products.filter(product => product._id !== id);
-                        setProducts(remaining);
+                        const remaining = orders.filter(product => product._id !== id);
+                        setOrders(remaining);
                     }
                 })
         }
     }
     return (
         <div>
-            <h1>Your Orders{products.length}</h1>
+            <h1>Your Orders{orders.length}</h1>
             <div className="table-responsive">
                 <table className="table table-hover text-center">
                     <thead>
@@ -46,7 +48,7 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            products.map(product => <tr>
+                            orders.map(product => <tr>
                                 <th scope="row">{Id++}</th>
                                 <td>{product.name}</td>
                                 <td>{product.email}</td>

@@ -5,14 +5,10 @@ import { useForm } from 'react-hook-form';
 const AddProduct = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        const formData = new FormData();
-        formData.append('name', data.name);
-        formData.append('description', data.description);
-        formData.append('price', data.price);
-        formData.append('img', data.img[0]);
-
+        // const formData =new FormData();
+        // formData.append('name')
         // use AXIOS for post into data base
-        axios.post('http://localhost:5000/products', formData)
+        axios.post('https://agile-everglades-07523.herokuapp.com/products', data)
             .then(res => {
                 // console.log(res);
                 if (res.data.insertedId) {
@@ -23,7 +19,7 @@ const AddProduct = () => {
     };
     return (
         <div>
-            <h1>Add A Product</h1>
+            <h1>add A Product</h1>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column justify-content-center align-items-center mt-5">
                     <input className="w-50 mb-3 p-2" {...register("name")} type="name" placeholder="Package Name" required />
