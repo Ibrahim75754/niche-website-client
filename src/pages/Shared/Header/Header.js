@@ -6,7 +6,8 @@ const Header = () => {
     const { user, logout } = useAuth();
 
     const activeStyle = {
-        color: "#FDF3F4",
+        color: "#229954",
+        fontWeight: "bold",
     }
     return (
         <div className="text-start" style={{ marginBottom: '80px' }}>
@@ -14,21 +15,21 @@ const Header = () => {
                 <div className="container">
                     <NavLink className="navbar-brand" to="/">
                         {/* <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" className="d-inline-block align-text-top" /> */}
-                        <h1 className="text-bold d-inline" style={{ color: "tomato" }}>MYShop</h1>
+                        <h1 className="text-bold d-inline" style={{ color: "#229954" }}>Shaven</h1>
                     </NavLink>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarText">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0" style={{ fontWeight: "bold" }}>
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <NavLink className="nav-link" activeStyle={activeStyle} aria-current="page" to="/home">Home</NavLink>
+                                <NavLink className="nav-link  text-white" activeStyle={activeStyle} aria-current="page" to="/home">Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link " activeStyle={activeStyle} aria-current="page" to="/allProducts">More Products</NavLink>
+                                <NavLink className="nav-link  text-white" activeStyle={activeStyle} aria-current="page" to="/allProducts">More Products</NavLink>
                             </li>
                             {user?.email && <li className="nav-item">
-                                <NavLink className="nav-link " activeStyle={activeStyle} aria-current="page" to="/dashboard">Dashboard</NavLink>
+                                <NavLink className="nav-link  text-white" activeStyle={activeStyle} aria-current="page" to="/dashboard">Dashboard</NavLink>
                             </li>}
                         </ul>
                         {user?.email ?

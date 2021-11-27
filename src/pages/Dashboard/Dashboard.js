@@ -44,11 +44,11 @@ function Dashboard(props) {
     const drawer = (
         <div style={{ backgroundColor: "#006885", height: "100vh", color: "white" }}>
             <Toolbar >
-                <h1 className="text-bold d-inline" style={{ color: "tomato" }}>MYShop</h1>
+                <h1 className="text-bold d-inline" style={{ color: "#229954" }}>Shaven</h1>
             </Toolbar>
             <Divider />
             <Link to="/home"><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Home</Button></Link>
-            <Link to={`${url}`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Dashboard</Button></Link>
+
             {
                 admin ?
                     <Box>
@@ -76,7 +76,7 @@ function Dashboard(props) {
                 position="fixed"
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
-                    ml: { sm: `${drawerWidth}px` },
+                    ml: { sm: `${drawerWidth}px` }, backgroundColor: "#006885"
                 }}
             >
                 <Toolbar>
@@ -89,9 +89,9 @@ function Dashboard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
-                        Dashboard
-                    </Typography>
+
+                    <Link to={`${url}`}><Button color="inherit" className="w-100 text-white text-decoration-none py-2 mb-2">Dashboard</Button></Link>
+
                 </Toolbar>
             </AppBar>
             <Box

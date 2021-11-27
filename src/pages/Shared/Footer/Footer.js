@@ -6,7 +6,7 @@ const Footer = () => {
         <div className="py-5"
             style={{ backgroundColor: "#1E3741" }}>
             <div className="container text-light">
-                <h1 style={{ color: "tomato" }}>MYShop</h1>
+                <h1 style={{ color: "#229954" }}>Shaven</h1>
                 <hr />
                 <div className="row mt-4">
                     <div className="col-md-4">

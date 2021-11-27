@@ -97,8 +97,8 @@ const CheckoutForm = ({ order }) => {
 
     }
     return (
-        <div>
-            <h1>hello</h1>
+        <div style={{ width: "50%", border: "1px solid green", padding: "50px" }}>
+
             <form onSubmit={handleSubmit}>
                 <CardElement
                     options={{
@@ -120,7 +120,7 @@ const CheckoutForm = ({ order }) => {
                     processing ?
                         <CircularProgress></CircularProgress>
                         :
-                        <button type="submit" disabled={!stripe || success}>
+                        <button className="btn btn-success" type="submit" disabled={!stripe || success}>
                             Pay:  {price} BDT
                         </button>
                 }
