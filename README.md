@@ -1,4 +1,4 @@
-# MYShop Web App
+# Shaven niche Website
 
 It is a single page application made with ReactJS, Bootstrap CSS etc...
 
@@ -6,10 +6,9 @@ It is a single page application made with ReactJS, Bootstrap CSS etc...
 
 - [Live Site Link](https://shaving-foam.web.app/)
 
-### `①  You can See Our All Packages` 
-### `②   You can Book Packages` 
-### `②   You can also manages packages` 
-### `②   You can also Add packages` 
+### `①  This is a niche website where users can order  shaving foam when logged in.` 
+### `②   Users also view their orders on the Dashboard page.` 
+### `②   It has a customized admin panel. An admin can insert, update and delete products and do others operations.` 
 ### `③  Easy to use & simple user interface`
 
 ## Technologies
